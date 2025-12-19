@@ -30,3 +30,12 @@ div{
 
 }
 
+.holder{
+     overflow: auto;
+     display: inline-block;
+    width: 450px;
+    height: 300px;
+
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+}

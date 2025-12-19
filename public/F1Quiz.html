@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <link rel="stylesheet" href="../public/GeneralStyle.css">
+ <link rel="stylesheet" href="../public/QuizStyle.css">
+
+    
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2Q Portfolio">
+    <meta name="keywords" content="2Q, Portfolio, Projects, and Web Development">
+    <meta name="Johann Dela Cruz" content="2Q">
+    <title>F1:Race Weekend</title>
+    <link rel="icon" href="/asset/F1Logo.png" sizes="32x32" type="image/png">
+    <script src="script.js" defer></script>
+    </head>
+    <header>
+    
+ <div class="header">
+        <a href ="../index.html">
+            <img src="../asset/F1Logo.png" height="70" alt="F1" title="Formula 1" class = "top">
+        </a>  
+        <h1>FullThrottle</h1> 
+    
+    
+    </div>
+    </header>
+    
+            <h2>F1 Quiz:</h2>
+            <h1 id = "score">Score: 0/8</h1>
+            <hr>
+
+        <body> 
+    <header>
+
+
+    <h1 id = "question">Question 1: Who was Lewis Hamilton's teammate when he was a rookie?</h1>
+
+<div class = 'ontop'>
+    <button id = "A" onclick= checker(0) onclick = location.reload(false)>A: Jenson Button</button>
+    <button id = "B" onclick= checker(0)>B: Michael Shcumacher</button>
+</div>
+<div class = 'onbottom'>
+    <button id = "C" onclick= checker(0)>C: George Russell</button>
+    <button id = "D" onclick= checker(1)>D: Fernando Alonso</button>
+</div>
+
+
+</div>
+    </header>
+        </body>
+
+    
+ <div class="bottomer">
+         
+        <a href = "../public/References.html">      
+            <h1 class = "bottom">References</h1> 
+        </a> 
+
+
+    </div>
+
+    <script>
+
+        let x = 0;
+        let y = 0;
+
+        let question = [
+            'Who was Lewis Hamiltons teammate when he was a rookie?',
+            'Who won 5 World Drivers Championships in a row?',
+            'What was the name of Visa Cashapp Racing  Bulls Formula One Team after buying out Minardi?',
+            'What was the name of Ferraris 2011 Formula Car?',
+            'How many teams are appearing in the 2026 Formula One Season?',
+            'Why was Fernando Alonso and Kimi Raikkonen frustrated during the 2014 season?',
+            'Who was the first WDC winner?',
+            'What was not one of the reasons why Williams was one of the most dominant teams in the late 80s/early 90s?'
+        ];
+
+        let Achoices = [
+            'Jenson Button',
+            'Max Verstappen',
+            'Scuderia Toro Rosso',
+            'F14T',
+            '10',
+            'Lewis Hamilton was dirty driving to win the Championship',
+            'Ayrton Senna',
+            'Advanced Technology'
+        ]
+            let Avalue = [0,0,1,0,0,0,0,0];
+
+        let Bchoices = [
+            'Michael Shcumacher',
+            'Lewis Hamilton',
+            'Scuderia AlphaTauri',
+            'F138',
+            '12',
+            'The F14T was uncontrollable coming in and out of corners',
+            'Juan Manuel Fangio',
+            'Legendary Drivers'
+        ]
+            let Bvalue = [0,0,0,0,0,1,0,0];
+
+        let Cchoices = [
+            'George Russell',
+            'Michael Schumacher',
+            'Red Bull Racing ',
+            'SF25',
+            '11',
+            'Because they had a big rivalry between them',
+            'Giuseppe Farina',
+            'Teams were unable to adapt'
+        ]
+            let Cvalue = [0,1,0,0,1,0,1,1];
+        let Dchoices = [
+            'Fernando Alonso',
+            'Ralf Schumacher',
+            'Toro Rosso AlphaTauri',
+            'F150 Italia',
+            '14',
+            "They don't know if they will have a spot in F1 the next year",
+            'Jim Clark',
+            'Cheating by use of performance boosting technology'
+        ]
+            let Dvalue = [1,0,0,1,0,0,0,0];
+
+
+        function checker(answer){
+
+            if (answer == 1){
+               
+                x = x + 1;
+               document.getElementById("score").innerHTML = "Score: " + x + "/8";
+            }
+
+        y = y + 1;
+        document.getElementById("question").innerHTML = "Question " + (y + 1) + ": " + question[y];
+
+        document.getElementById("A").innerHTML = "A: " + Achoices[y];
+            document.getElementById("A").onclick = function() { checker(Avalue[y]); };
+
+        document.getElementById("B").innerHTML = "B: " + Bchoices[y];
+            document.getElementById("B").onclick = function() { checker(Bvalue[y]); };
+
+        document.getElementById("C").innerHTML = "C: " + Cchoices[y];
+            document.getElementById("C").onclick = function() { checker(Cvalue[y]); };
+
+        document.getElementById("D").innerHTML = "D: " + Dchoices[y];
+            document.getElementById("D").onclick = function() { checker(Dvalue[y]); };
+
+            endquiz();
+        }
+    
+    function endquiz(){
+        
+        
+        if (y == 8){
+            document.getElementById("question").innerHTML = "Quiz Completed! Your final score is " + x + "/8";
+            document.getElementById("A").innerHTML = "Restart Quiz";
+                 document.getElementById("A").onclick = function() { location.reload(true); };
+            document.getElementById("B").style.display = "none";
+            document.getElementById("C").style.display = "none";
+            document.getElementById("D").style.display = "none";
+        }
+   
+    }
+
+
+
+    </script>
+
+
+

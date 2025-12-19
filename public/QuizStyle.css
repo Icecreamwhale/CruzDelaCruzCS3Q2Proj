@@ -1,0 +1,35 @@
+#B, #A, #C, #D, #end{
+   display: inline-block;
+   margin-bottom: 5%;
+   margin-top: 5%;
+   margin-right: 10%;
+   margin-left: 10%;
+   background-color: rgb(50, 50, 50);
+   width: 300px;
+   height: 80px;
+   border-style: dashed;
+   font-size: 20px;
+   overflow: auto;
+-ms-overflow-style: none;  
+    scrollbar-width: none;  
+
+}
+
+button{
+    font-family: "F1Regular", Arial, Helvetica, sans-serif;
+    color: white;
+
+}
+
+.ontop, .onbottom{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+#B:hover, #A:hover, #C:hover, #D:hover, #end:hover {
+  border-color: white;
+}
+

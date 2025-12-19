@@ -21,9 +21,13 @@ h2, h3{
 font-family: "F1Wide";
 }
 
+li{
+font-family: "F1Regular", Arial, Helvetica, sans-serif;
+}
+
 .header{
 background-color: rgb(23, 23, 23);
-padding-right: 85%;
+padding-right: 84%;
 display: flex;
 font-size: 80%;
 position: absolute;
@@ -32,7 +36,7 @@ left: 0;
 }
 .bottomer{
 background-color: rgb(23, 23, 23);
-padding-right: 89%;
+padding-right: 88.7%;
 display: flex;
 position: absolute;
 bottom: -5;
@@ -67,6 +71,11 @@ color: white;
 text-align: center;
 
 }
+li{
+color: white;
+font-size: 120%;
+
+}
 
 body{
 background-image: url(../asset/imager.png);
@@ -75,3 +84,8 @@ background-attachment: fixed;
 background-repeat: no-repeat;
 background-position: center;
 }
+
+.top:hover{
+  transform: translateY(-6px);
+}
+
