@@ -5,8 +5,7 @@
 <head>
  <link rel="stylesheet" href="../public/GeneralStyle.css">
  <link rel="stylesheet" href="../public/QuizStyle.css">
- <link rel="stylesheet" href="public\indexStyleSheet.css">
-
+<link rel="stylesheet" href="../public/indexStyleSheet.css">
     
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,11 +47,10 @@
     <button id = "D" onclick= checker(1)>D: Fernando Alonso</button>
 </div>
 
-
+<hr>
 </div>
     </header>
-    <hr>
-    <section class="cards-grid" aria-label="Quick links">
+      <section class="cards-grid" aria-label="Quick links">
 
                 <a class="card" href="../public/2026Regulations.html">
                     <img src="../asset/F1 2026 car.jpg" alt="2026 Regulations" class="card-img">
@@ -80,6 +78,7 @@
             </section>
         </body>
 
+
     
  <div class="bottomer">
          
@@ -91,7 +90,7 @@
     </div>
 
     <script>
-    //this JS contains all the questions and answers
+
         let x = 0;
         let y = 0;
 
@@ -153,7 +152,7 @@
         ]
             let Dvalue = [1,0,0,1,0,0,0,0];
 
-        //this JS checks if the selected answer is correct
+
         function checker(answer){
 
             if (answer == 1){
@@ -179,7 +178,7 @@
 
             endquiz();
         }
-    //this JS is activated when the quiz has ended, giving the user the option to restart
+    
     function endquiz(){
         
         
@@ -197,7 +196,6 @@
 
 
     </script>
-
 
 
 
