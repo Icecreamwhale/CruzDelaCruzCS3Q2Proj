@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../public/GeneralStyle.css">
+    <link rel="stylesheet" href="../public/TrackGameStyle.css">
+    <link rel="stylesheet" href="../public/indexStyleSheet.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2Q Portfolio">
+    <meta name="keywords" content="2Q, Portfolio, Projects, and Web Development">
+    <meta name="Johann Dela Cruz" content="2Q">
+    <title>F1: Track Game</title>
+    <link rel="icon" href="/asset/F1Logo.png" sizes="32x32" type="image/png">
+    <script src="../public/Save.js" defer></script>
+</head>
+
+<header>
+    <div class="header">
+        <a href="../index.html">
+            <img src="../asset/F1Logo.png" height="70" alt="F1" title="Formula 1" class="top">
+        </a>
+        <h1>FullThrottle</h1>
+    </div>
+</header>
+
+<body>
+
+    <h2 id="track-title">F1 Track Challenge</h2>
+    <h1 id="status-bar">Corner 1 of ?</h1>
+    <hr>
+
+    <div id="game-area">
+
+        <div id="timer-display">
+            <span id="timer-label">Fuel remaining:</span>
+            <span id="timer-val">20s</span>
+        </div>
+
+        <h1 id="corner-name">Loading...</h1>
+        <p id="corner-hint"></p>
+
+        <div class="ontop">
+            <button id="L" onclick="checker('left')">← Left</button>
+            <button id="R" onclick="checker('right')">Right →</button>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <section class="cards-grid" aria-label="Quick links">
+        <a class="card" href="../public/2026Regulations.html">
+            <img src="../asset/F1 2026 car.jpg" alt="2026 Regulations" class="card-img">
+            <p>2026 Regulations:</p>
+            <p>-What changes are coming to F1 this year.</p>
+        </a>
+        <a class="card" href="../public/PartsofaFormulaOneCar.html">
+            <img src="../asset/F1_Halo.jpeg" alt="Parts of an F1 car" class="card-img">
+            <p>Parts of an F1 Car:</p>
+            <p>-Main components that make it all happen.</p>
+        </a>
+        <a class="card" href="../public/WhatHappensinaRaceWeekend.html">
+            <img src="../asset/FreePractice_3.jpeg" alt="Race Weekend" class="card-img">
+            <p>Race Weekend:</p>
+            <p>-How a race weekend is structured.</p>
+        </a>
+        <a class="card" href="../public/F1Quiz.html">
+            <img src="../asset/Qualifying_3.jpeg" alt="Quiz" class="card-img">
+            <p>Quiz</p>
+            <p>-Test Your knowledge on F1 with our interactive quiz</p>
+        </a>
+    </section>
+
+    <div class="bottomer">
+        <a href="../public/References.html">
+            <h1 class="bottom">References</h1>
+        </a>
+    </div>
+
+</body>
+
+<script>
+    //tracks for the game
+    const tracks = {
+        albert: {
+            name: "Albert Park Circuit",
+            corners: [
+                "Jones",
+                "Brabham",
+                "Turn 3",
+                "Turn 4",
+                "Turn 5",
+                "Turn 6",
+                "Marina",
+                "Lauda",
+                "Turn 9",
+                "Turn 10",
+                "Turn 11",
+                "Turn 12",
+                "Ascari",
+                "Prost"
+            ],
+            answers: ["right", "left", "right", "left", "right", "right", "left", "right", "right", "left", "left", "right", "right", "right"]
+        },
+
+        bahrain: {
+            name: "Bahrain International Circuit",
+            corners: [
+                "Michael Schumacher Corner",
+                "Turn 2",
+                "Turn 3",
+                "Turn 4",
+                "Turn 5",
+                "Turn 6",
+                "Turn 7",
+                "Turn 8",
+                "Turn 9",
+                "Turn 10",
+                "Turn 11",
+                "Turn 12",
+                "Turn 13",
+                "Turn 14",
+                "Turn 15"],
+            answers:  ["right", "left", "right", "right", "left", "right", "left", "right", "left", "left", "left", "right", "right", "right", "right"]
+        },
+        baku: {
+            name: "Baku City Circuit",
+            corners: [
+                "Turn 1",
+                "Turn 2",
+                "Turn 3",
+                "Turn 4",
+                "Turn 5",
+                "Turn 6",
+                "Turn 7",
+                "Turn 8 (Castle Section)",
+                "Turn 9",
+                "Turn 10",
+                "Turn 11",
+                "Turn 12",
+                "Turn 13",
+                "Turn 14",
+                "Turn 15",
+                "Turn 16",
+                "Turn 17",
+                "Turn 18",
+                "Turn 19",
+                "Turn 20",
+                ],
+            answers: ["left", "left", "left", "right", "left", "right", "right", "left", "right", "left", "right", "left", "left", "left", "left", "left", "right", "left", "right", "right"]
+        },
+        spa: {
+            name: "Spa-Francorchamps",
+            corners: [
+                "La Source",
+                "Eau Rouge",
+                "Raidillon",
+                "Kemmel Straight (Kink)",
+                "Les Combes",
+                "Malmedy",
+                "Bruxelles",
+                "Speaker's Corner",
+                "No Name (Turn 9)",
+                "Pouhon",
+                "Turn 11",
+                "Fagnes",
+                "Turn 13",
+                "Stavelot",
+                "Paul Frère",
+                "Blanchimont (Entry)",
+                "Blanchimont (Exit)",
+                "Bus Stop Chicane (Entry)",
+                "Bus Stop Chicane (Exit)",
+                ],
+            answers: ["right", "left", "right", "left", "right", "right", "right", "left", "left", "left", "right", "right", "left", "right", "right", "left", "left", "right", "left"]
+        },
+        silverstone: {
+            name: "Silverstone",
+            corners: [
+                "Abbey",
+                "Farm Curve",
+                "Village",
+                "The Loop",
+                "Aintree",
+                "Brooklands",
+                "Luffield",
+                "Woodcote",
+                "Copse",
+                "Maggotts",
+                "Maggotts (Second Part)",
+                "Becketts",
+                "Becketts (Second Part)",
+                "Chapel",
+                "Stowe",
+                "Vale",
+                "Club",
+                "Club (Final Turn)",
+                ],
+            answers: ["right", "left", "right", "left", "left", "left", "right", "right", "right", "left", "right", "left", "right", "left", "right", "left", "right", "right"]
+        },
+        redbull: {
+            name: "Red Bull Ring",
+            corners: [
+                "Niki Lauda Kurve",
+                "Turn 2",
+                "Remus",
+                "Schlossgold",
+                "Turn 5",
+                "Turn 7",
+                "Turn 8",
+                "Turn 9 (Jochen Rindt Kurve)",
+                "Turn 10",
+                "Turn 11",
+                ],
+            answers: ["right", "left", "right", "right", "left", "left", "left", "right", "right", "right"]
+        },
+        monaco: {
+            name: "Circuit de Monaco",
+            corners: [
+                "Sainte-Dévote",
+                "Beau Rivage",
+                "Massenet",
+                "Casino Square",
+                "Mirabeau Haute",
+                "Grand Hôtel Hairpin (Fairmont)",
+                "Mirabeau Bas",
+                "Portier",
+                "Tunnel (Curve)",
+                "Nouvelle Chicane (Entry)",
+                "Nouvelle Chicane (Exit)",
+                "Tabac",
+                "Louis Chiron",
+                "Piscine (First part entry)",
+                "Piscine (First part exit)",
+                "Piscine (Second part entry)",
+                "Piscine (Second part exit)",
+                "La Rascasse",
+                "Antony Noghès",
+            ],
+            answers: ["right", "left", "left", "right", "right", "left", "right", "right", "right", "left", "right", "left", "left", "right", "left", "left", "right", "right", "right"]
+        },
+        monza: {
+            name: "Monza",
+            corners: [
+                "Variante del Rettifilo (Entry)",
+                "Variante del Rettifilo (Exit)",
+                "Curva Grande (Biassono)",
+                "Variante della Roggia (Entry)",
+                "Variante della Roggia (Exit)",
+                "Lesmo 1",
+                "Lesmo 2",
+                "Variante Ascari (Entry)",
+                "Variante Ascari (Middle)",
+                "Variante Ascari (Exit)",
+                "Curva Alboreto (formerly Parabolica)",
+                ],
+            answers: ["right", "left", "right", "left", "right", "right", "right", "left", "right", "left", "right"]
+        },
+        carlos: {
+            name: "José Carlos Pace",
+            corners: [
+                "S do Senna (Part 1)",
+                "S do Senna (Part 2)",
+                "Curva do Sol",
+                "Descida do Lago (Part 1)",
+                "Descida do Lago (Part 2)",
+                "Ferradura (Entry)",
+                "Ferradura (Exit)",
+                "Laranjinha",
+                "Pinheirinho",
+                "Bico de Pato",
+                "Mergulho",
+                "Junção",
+                "Curva do Café",
+                "Subida dos Boxes",
+                "Arquibancadas",
+                ],
+            answers: ["left", "right", "left", "left", "left", "right", "right", "right", "left", "right", "left", "left", "left", "left", "left"]
+        },
+        yas: {
+            name: "Yas Marina",
+            corners: [
+                "Turn 1",
+                "Turn 2",
+                "Turn 3",
+                "Turn 5",
+                "Turn 6",
+                "Turn 7",
+                "Turn 8",
+                "Turn 9 (Marsa Corner)",
+                "Turn 10",
+                "Turn 11",
+                "Turn 12",
+                "Turn 13",
+                "Turn 14",
+                "Turn 15",
+                "Turn 16",
+                ],
+            answers: ["left", "left", "right", "left", "left", "right", "left", "left", "right", "right", "right", "left", "left", "right", "right"]
+        }
+
+    };
+
+    let y = 0;                 
+    let timerVal = 20;    
+    let timerInterval = null;
+    let gameOver = false;
+
+    const TIME_LIMIT = 20;
+
+    const params = new URLSearchParams(window.location.search);
+    const trackKey = params.get("track");
+    const track = tracks[trackKey];
+
+    const corners  = track.corners;
+    const answers  = track.answers;         
+
+    document.getElementById("track-title").textContent = track.name;
+
+    function updateDisplay() {
+        document.getElementById("status-bar").textContent =
+            "Corner " + (y + 1) + " of " + corners.length;
+        document.getElementById("corner-name").textContent = corners[y];
+
+        // reset buttons in case they were hidden
+        document.getElementById("L").style.display = "inline-block";
+        document.getElementById("R").style.display = "inline-block";
+        document.getElementById("L").textContent = "← Left";
+        document.getElementById("R").textContent = "Right →";
+        document.getElementById("L").onclick = function() { checker("left"); };
+        document.getElementById("R").onclick = function() { checker("right"); };
+    }
+
+    function resetTimer() {
+        clearInterval(timerInterval);
+        timerVal = TIME_LIMIT;
+        updateTimerDisplay();
+        timerInterval = setInterval(tick, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const el = document.getElementById("timer-val");
+        el.textContent = timerVal + "s";
+        el.className = timerVal <= 5 ? "danger" : "";
+    }
+
+    function tick() {
+        timerVal--;
+        updateTimerDisplay();
+        if (timerVal <= 0) {
+            clearInterval(timerInterval);
+            outOfGas();
+        }
+    }
+
+    // checks answers
+    function checker(answer) {
+        if (gameOver) return;
+        clearInterval(timerInterval);
+
+        if (answer !== answers[y]) {
+            crashOut();
+            return;
+        }
+
+        // correct
+        y++;
+
+        if (y >= corners.length) {
+            winGame();
+        } else {
+            updateDisplay();
+            resetTimer();
+        }
+    }
+
+    // endings
+    function crashOut() {
+        gameOver = true;
+        document.getElementById("status-bar").textContent = "DNF — CRASH!";
+        document.getElementById("corner-name").textContent =
+            "You went the wrong way at " + corners[y] + " and hit the barrier!";
+        document.getElementById("corner-hint").textContent =
+            "Corners completed: " + y + " / " + corners.length;
+        document.getElementById("timer-display").style.display = "none";
+
+        document.getElementById("L").textContent = "Try Again";
+        document.getElementById("L").onclick = function() { location.reload(true); };
+        document.getElementById("R").textContent = "Pick Another Track";
+        document.getElementById("R").onclick = function() {
+            window.location.href = "F1TrackSelect.html";
+        };
+    }
+
+    function outOfGas() {
+        gameOver = true;
+        document.getElementById("status-bar").textContent = "DNF — RAN OUT OF GAS!";
+        document.getElementById("corner-name").textContent =
+            "You took too long at " + corners[y] + " and ran out of fuel!";
+        document.getElementById("corner-hint").textContent =
+            "Corners completed: " + y + " / " + corners.length;
+        document.getElementById("timer-display").style.display = "none";
+
+        document.getElementById("L").textContent = "Try Again";
+        document.getElementById("L").onclick = function() { location.reload(true); };
+        document.getElementById("R").textContent = "Pick Another Track";
+        document.getElementById("R").onclick = function() {
+            window.location.href = "F1TrackSelect.html";
+        };
+    }
+
+    function winGame() {
+        gameOver = true;
+        document.getElementById("status-bar").textContent = "YOU FINISHED P1!";
+        document.getElementById("corner-name").textContent =
+            "Congratulations! You navigated all " + corners.length +
+            " corners of " + track.name + " perfectly!";
+        document.getElementById("corner-hint").textContent =
+            "Perfect lap — no crashes, no fuel issues!";
+        document.getElementById("timer-display").style.display = "none";
+
+        document.getElementById("L").textContent = "Race Again";
+        document.getElementById("L").onclick = function() { location.reload(true); };
+        document.getElementById("R").textContent = "Try Another Track";
+        document.getElementById("R").onclick = function() {
+            window.location.href = "F1TrackSelect.html";
+        };
+    }
+
+    //calling the created functions
+    updateDisplay();
+    resetTimer();
+
+</script>
+
+</html>

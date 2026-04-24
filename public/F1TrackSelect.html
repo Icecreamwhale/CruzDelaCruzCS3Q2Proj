@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../public/GeneralStyle.css">
+    <link rel="stylesheet" href="../public/indexStyleSheet.css">
+    <link rel="stylesheet" href="../public/TrackSelectStyle.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2Q Portfolio">
+    <meta name="keywords" content="2Q, Portfolio, Projects, and Web Development">
+    <meta name="Johann Dela Cruz" content="2Q">
+    <title>F1: Track Game</title>
+    <link rel="icon" href="/asset/F1Logo.png" sizes="32x32" type="image/png">
+    <script src="../public/Save.js" defer></script>
+</head>
+
+<header>
+    <div class="header">
+        <a href="../index.html">
+            <img src="../asset/F1Logo.png" height="70" alt="F1" title="Formula 1" class="top">
+        </a>
+        <h1>FullThrottle</h1>
+    </div>
+</header>
+
+<body>
+
+    <h2>F1 Track Challenge</h2>
+    <hr>
+
+    <div class="instructions-box">
+        <h3>How to Play</h3>
+        <p>You are behind the wheel of an F1 car navigating a real race circuit. At each corner, you must decide to go <strong>Left</strong> or <strong>Right</strong>.</p>
+        <ul class="instructions-list">
+            <li>Each corner has a <span class="highlight">20-second fuel timer</span> — decide before it runs out or it's game over.</li>
+            <li>Go the <span class="highlight">wrong direction</span> and you crash out. Game over!</li>
+            <li>Run out of time and you <span class="highlight">run out of gas</span> on track.</li>
+            <li>Navigate every corner correctly to <span class="highlight">finish P1!</span></li>
+        </ul>
+        <p class="tip">Tip: Think about the real track layout — some corners you may already know!</p>
+    </div>
+
+    <hr>
+
+    <h3>Select a Track</h3>
+
+    <ol class="track-list">
+        <li>
+            <a href="F1TrackGame.html?track=albert" class="track-link">
+                <span class="track-name">Albert Park Circuit</span>
+                <span class="track-info">Australia · 14 corners</span>
+                <span class="track-diff easy">Beginner</span>
+            </a>
+        </li>
+        <li>
+            <a href="F1TrackGame.html?track=bahrain" class="track-link">
+                <span class="track-name">Bahrain International Circuit</span>
+                <span class="track-info">Bahrain · 15 corners</span>
+                <span class="track-diff easy">Beginner</span>
+            </a>
+        </li>
+        <li>
+            <a href="F1TrackGame.html?track=baku" class="track-link">
+                <span class="track-name">Baku City Circuit</span>
+                <span class="track-info">Baku · 20 corners</span>
+                <span class="track-diff easy">Beginner</span>
+            </a>
+        </li>
+        <li>
+            <a href="F1TrackGame.html?track=spa" class="track-link">
+                <span class="track-name">Spa-Francorchamps</span>
+                <span class="track-info">Belgium · 19 corners</span>
+                <span class="track-diff medium">Intermediate</span>
+            </a>
+        </li>
+        <li>
+            <a href="F1TrackGame.html?track=silverstone" class="track-link">
+                <span class="track-name">Silverstone Circuit</span>
+                <span class="track-info">Britain · 18 corners</span>
+                <span class="track-diff medium">Intermediate</span>
+            </a>
+        </li>
+        <li>
+            <a href="F1TrackGame.html?track=redbull" class="track-link">
+                <span class="track-name">Red Bull Ring</span>
+                <span class="track-info">Austria · 10 corners</span>
+                <span class="track-diff medium">Intermediate</span>
+            </a>
+        </li>
+        <li>
+            <a href="F1TrackGame.html?track=monaco" class="track-link">
+                <span class="track-name">Circuit de Monaco</span>
+                <span class="track-info">Monte-Carlo · 19 corners</span>
+                <span class="track-diff medium">Intermediate</span>
+            </a>
+        </li>
+        <li>
+            <a href="F1TrackGame.html?track=monza" class="track-link">
+                <span class="track-name">Autodromo Nazionale Monza</span>
+                <span class="track-info">Italy · 11 corners</span>
+                <span class="track-diff hard">Hard</span>
+            </a>
+        </li>
+        <li>
+            <a href="F1TrackGame.html?track=carlos" class="track-link">
+                <span class="track-name">Autódromo José Carlos Pace</span>
+                <span class="track-info">Interlagos · 15 corners</span>
+                <span class="track-diff hard">Hard</span>
+            </a>
+        </li>
+        <li>    
+            <a href="F1TrackGame.html?track=yas" class="track-link">
+                <span class="track-name">Yas Marina Circuit</span>
+                <span class="track-info">Abu Dhabi · 15 corners</span>
+                <span class="track-diff hard">Hard</span>
+            </a>
+        </li>
+    </ol>
+
+    <hr>
+
+    <section class="cards-grid" aria-label="Quick links">
+        <a class="card" href="../public/2026Regulations.html">
+            <img src="../asset/F1 2026 car.jpg" alt="2026 Regulations" class="card-img">
+            <p>2026 Regulations:</p>
+            <p>-What changes are coming to F1 this year.</p>
+        </a>
+        <a class="card" href="../public/PartsofaFormulaOneCar.html">
+            <img src="../asset/F1_Halo.jpeg" alt="Parts of an F1 car" class="card-img">
+            <p>Parts of an F1 Car:</p>
+            <p>-Main components that make it all happen.</p>
+        </a>
+        <a class="card" href="../public/WhatHappensinaRaceWeekend.html">
+            <img src="../asset/FreePractice_3.jpeg" alt="Race Weekend" class="card-img">
+            <p>Race Weekend:</p>
+            <p>-How a race weekend is structured.</p>
+        </a>
+        <a class="card" href="../public/F1Quiz.html">
+            <img src="../asset/Qualifying_3.jpeg" alt="Quiz" class="card-img">
+            <p>Quiz</p>
+            <p>-Test Your knowledge on F1 with our interactive quiz</p>
+        </a>
+                  
+                 <a class="card" href="../public/F1TrackSelect.html">
+                    <img src="../asset/Red Bull Racing.jpg" alt="Teams" class="card-img">
+                    <p>Track Select</p>
+                    <p>-Test your knowledge on F1's most famous circuits</p>
+                </a>
+    </section>
+
+    <div class="bottomer">
+        <a href="../public/References.html">
+            <h1 class="bottom">References</h1>
+        </a>
+    </div>
+
+</body>
+</html>

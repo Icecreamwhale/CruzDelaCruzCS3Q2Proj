@@ -1,0 +1,80 @@
+#game-area {
+    text-align: center;
+    margin: 2% 10%;
+}
+
+#timer-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 24px;
+    margin-bottom: 2%;
+}
+
+#timer-label {
+    font-size: 14px;
+    color: #777;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#timer-val {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 48px;
+}
+
+#timer-val.danger {
+    color: #e10600;
+}
+
+#corner-name {
+    font-size: 180%;
+    color: #e10600;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+#corner-hint {
+    font-size: 95%;
+    color: #888;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+#status-bar {
+    text-align: center;
+    font-size: 120%;
+    color: #aaa;
+}
+
+.ontop {
+    text-align: center;
+    margin-top: 2%;
+}
+
+/* reuse quiz button style but scoped to game */
+#L, #R {
+    display: inline-block;
+    margin: 3% 4%;
+    background-color: rgb(50, 50, 50);
+    width: 220px;
+    height: 70px;
+    border-style: dashed;
+    border-color: #555;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: border-color 0.15s, background-color 0.15s, transform 0.1s;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#L:hover, #R:hover {
+    border-color: white;
+    transform: translateY(-4px);
+}
