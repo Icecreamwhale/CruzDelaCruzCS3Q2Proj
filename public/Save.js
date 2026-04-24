@@ -1,7 +1,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const team = localStorage.getItem('team'); 
+  const age = localStorage.getItem('age');
+  const btn = document.getElementById("button");
+  const head = document.getElementById("head");
+  
+
   if (!team) return;
+
+if (age > 0){
+  btn.textContent = "Edit profile";
+  head.textContent = `${localStorage.getItem('name')}, WELCOME TO FULL THROTTLE!`;
+}
+
 
   const teamBackgrounds = {
     'Red Bull Racing': 'asset/redbull_bg.jpg',
@@ -22,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
+    
   }
+
 });
 

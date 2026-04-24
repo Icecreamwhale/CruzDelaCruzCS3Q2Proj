@@ -25,15 +25,17 @@
     </div>
     </header>
     
-            <h2>FULL THROTTLE:</h2>
+            <h2 id = "head">FULL THROTTLE:</h2>
     <h3>A Detailed Overview on Everything F1</h3>
 
         <div class = "signup">
-            <button class="signUp" onclick="location.href='./public/FORM.html'">Sign Up</button>
+            <button class="signUp" id = "button" onclick="location.href='./public/FORM.html'" >Sign Up</button>
         </div>
 
         <div class = "signup">
-            <button class="clearButton" onclick="localStorage.clear()">Clear Saved Data</button>
+            <button class="clearButton" onclick="localStorage.clear(), location.reload()">Clear Saved Data</button>
+
+
         </div>
 
 
@@ -59,11 +61,15 @@
                     <p>-How a race weekend is structured.</p>
                 </a>
 
+                
+
                  <a class="card" href="./public/F1Quiz.html">
                     <img src="asset/Qualifying_3.jpeg" alt="Teams" class="card-img">
                     <p>Quiz</p>
                     <p>-Test Your knowledge on F1 with our interactive quiz</p>
                 </a>
+
+
             </section>
 
         </body>
